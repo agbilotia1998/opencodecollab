@@ -38,5 +38,11 @@ function initializeClock(id, endtime) {
   var timeinterval = setInterval(updateClock, 1000);
 }
 
-var deadline = new Date(Date.parse(new Date()) + 6 * 59 * 60 * 1000);
+var countdownTarget = localStorage.getItem('countdownTarget');    // Read from storage.
+if (countdownTarget === null) {                                   // Not stored?
+    countdownTarget = (new Date()).getTime() + 6*59*60*1000;  // Make a new one.
+    localStorage.setItem('countdownTarget', countdownTarget);     // Store it.
+}
+
+var deadline =countdownTarget ;
 initializeClock('clockdiv', deadline);
