@@ -44,5 +44,5 @@ if (countdownTarget === null) {                                   // Not stored?
     localStorage.setItem('countdownTarget', countdownTarget);     // Store it.
 }
 
-var deadline =countdownTarget ;
+var deadline = countdownTarget ;
 initializeClock('clockdiv', deadline);
